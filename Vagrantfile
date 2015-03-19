@@ -18,7 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   cluster.each_with_index do |(short_name, ip), idx|
 
     config.vm.define short_name do |host|
-
+      host.vm.network :forwarded_port, guest: 2181, host: 2181 + idx
       host.vm.network :private_network, ip: ip
       host.vm.hostname = short_name
       host.vm.provider :virtualbox do |vb|
