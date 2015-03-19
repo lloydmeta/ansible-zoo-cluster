@@ -1,0 +1,14 @@
+[Unit]
+Description=Zookeeper
+Before=
+After=network.target
+
+[Service]
+Type=forking
+User=zookeeper
+CHDIR= {{ zk_dir }}
+ExecStart={{ zk_dir }}/bin/zkServer.sh
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars_prompt:
+     - name: "accept_oracle_licence"
+       prompt: "Do you accept the Oracle JDK licence? (JDK8 will not be provisioned for you if you input anything other than 'yes') http://www.oracle.com/technetwork/java/javase/terms/license/index.html"
+       private: yes
+  roles:
+    - { role: java, when: accept_oracle_licence == "yes" }
+    - zookeeper
