@@ -46,7 +46,7 @@
   notify: restart zookeeper
   tags: zookeeper
 
-- name: Ensures data dir {{zk.data_dir}} exists
+- name: Ensures data dir {{ zk.data_dir }} exists
   file:
     path: "{{ zk.data_dir }}"
     state: directory

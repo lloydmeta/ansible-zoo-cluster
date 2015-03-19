@@ -6,7 +6,8 @@ After=network.target
 [Service]
 Type=forking
 User=zookeeper
-CHDIR= {{ zk_dir }}
+Environment=ZOO_LOG_DIR={{ zk.data_dir }}/log
+CHDIR= {{ zk.data_dir }}
 ExecStart={{ zk_dir }}/bin/zkServer.sh start
 Restart=on-abort
 
