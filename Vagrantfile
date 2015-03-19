@@ -30,7 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         ansible.verbose = 'vv'
         ansible.sudo = true
         ansible.extra_vars = {
-          accept_oracle_licence: true # set to false if you don't agree (will not install Java8 for you)
+          accept_oracle_licence: true, # set to false if you don't agree (will not install Java8 for you)
           cluster_node_seq: idx + 1,
           cluster_ip_addresses: cluster.values
         }

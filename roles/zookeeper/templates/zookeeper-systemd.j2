@@ -7,7 +7,7 @@ After=network.target
 Type=forking
 User=zookeeper
 CHDIR= {{ zk_dir }}
-ExecStart={{ zk_dir }}/bin/zkServer.sh
+ExecStart={{ zk_dir }}/bin/zkServer.sh start
 Restart=on-abort
 
 [Install]
